@@ -34,28 +34,6 @@ def creatingTable():
 
 creatingTable()
 
-
-# # function for add teachers data
-# def add_teachers():
-#     myCon = mySql.connect(host="rasc.mysql.database.azure.com", user="innocode_rasc", password="Rasc_062301", database="teachers_management_system")
-#     cursor = myCon.cursor()
-#     if not roll_val.get() or not name_val.get() or not class_val.get() or not dob_val.get() or not gender_val.get() \
-#             or not contact_val.get() or not email_val.get() or not address_val.get():
-#         mb.showerror("ERROR!", "Enter all the records to add")
-#     else:
-#         cursor.execute('''insert into teachers_data
-#                               values('{}','{}','{}',{},'{}','{}','{}','{}')'''.format(roll_val.get(), name_val.get(),
-#                                                                                       class_val.get(),
-#                                                                                       dob_val.get(), gender_val.get(),
-#                                                                                       contact_val.get(),
-#                                                                                       email_val.get(),
-#                                                                                       address_val.get()))
-#         myCon.commit()
-#         view_teachers()
-#         mb.showinfo("RECORD ADDED", f"Record of {name_val.get()} is added")
-#         clear()
-#         myCon.close()
-
 # function for add teachers data
 def add_teachers():
     myCon = mySql.connect(host="rasc.mysql.database.azure.com", user="innocode_rasc", password="Rasc_062301", database="teachers_management_system")
@@ -118,7 +96,8 @@ def getCursor(ev):
     class_val.set(row[2])
     dob_val.set(row[3])
     gender_val.set(row[4])
-    contact_val.set(row[5])
+    # contact_val.set(row[5])
+    contact_val.set(f"0{row[5]}")
     email_val.set(row[6])
     address_val.set(row[7])
 
